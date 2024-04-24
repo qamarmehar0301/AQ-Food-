@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet, Image, Alert, TouchableOpacity, ScrollView, FlatList, Pressable, Dimensions } from 'react-native';
+import { Text, View, StyleSheet, Image, Alert, TouchableOpacity, ScrollView, FlatList, Pressable, Dimensions, AppState } from 'react-native';
 import { Icon } from "react-native-elements";
 import CountDown from 'react-native-countdown-component';
 import Home_Header from "../Components/Home_Header";

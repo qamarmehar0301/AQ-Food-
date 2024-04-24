@@ -4,6 +4,7 @@ import Welcome_Screen from "../screens/Welcome";
 import SignIn from "../screens/auth_screens/signIn";
 import Home_Screen from "../screens/Home_Screen";
 import SignUp from "../screens/auth_screens/signUp";
+import Buottom_tab_navigator from "./bottomTabNavigation";
 
 const Auth = createNativeStackNavigator();
 
@@ -15,7 +16,7 @@ export default function AuthStack() {
                 component={Welcome_Screen}
                 options={{
                     headerShown: false,
-                    // ...TransitionPreset.RevealFromBottomAndroid
+                    //...TransitionPreset.RevealFromBottomAndroid
                 }}
             />
             <Auth.Screen
@@ -34,9 +35,9 @@ export default function AuthStack() {
                     // ...TransitionPreset.RevealFromBottomAndroid
                 }}
             />
-             <Auth.Screen
-                name="Home_Screen"
-                component={Home_Screen}
+            <Auth.Screen
+                name="Bottom_Tab_Navigator"
+                component={Buottom_tab_navigator}
                 options={{
                     headerShown: false,
                     // ...TransitionPreset.RevealFromBottomAndroid

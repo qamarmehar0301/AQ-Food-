@@ -17,7 +17,7 @@ export default function Home_Screen({ navigation }) {
     return (
         <View style={styles.container}>
 
-            <Home_Header />
+            <Home_Header/>
 
             <ScrollView stickyHeaderIndices={[0]} showsVerticalScrollIndicator={true}>
 
@@ -27,8 +27,8 @@ export default function Home_Screen({ navigation }) {
                         <TouchableOpacity
                             onPress={() => {
                                 setDelivery(true)
-                                //navigation.navigate('Home_Screen')
-                                Alert.alert('You are now at Delivery Screen')
+                                navigation.navigate('Bottom_Tab_Navigator')
+                                
                             }}
                         >
                             <View style={{ ...styles.deliveryBtn, backgroundColor: Delivery ? colors.buttons : colors.grey4 }}>
@@ -39,7 +39,7 @@ export default function Home_Screen({ navigation }) {
                         <TouchableOpacity
                             onPress={() => {
                                 setDelivery(false)
-                                Alert.alert('You are now at Pick Up Screen')
+                                navigation.navigate('ResturantsMap_Screen')
                             }}
                         >
                             <View style={{ ...styles.deliveryBtn, backgroundColor: Delivery ? colors.grey4 : colors.buttons }}>
@@ -211,6 +211,22 @@ export default function Home_Screen({ navigation }) {
                 </View>
 
             </ScrollView>
+
+            {/* Map Floating Button */}
+            { Delivery &&
+                <View>
+                    <TouchableOpacity style={styles.map_Btn} onPress={() => { navigation.navigate('ResturantsMap_Screen') }}>
+                        <Icon
+                            type="material-community"
+                            name="map-marker"
+                            color={colors.buttons}
+                            size={32}
+                        />
+                        <Text style={{ color: colors.grey3 }}> Map </Text>
+                    </TouchableOpacity>
+                </View>
+            }
+
         </View>
     )
 }
@@ -294,5 +310,14 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: colors.grey1,
         fontWeight: 'bold'
+    },
+    map_Btn: {
+        backgroundColor: 'white',
+        borderRadius: 30,
+        bottom: 15, right: 15,
+        elevation: 10,
+        position: 'absolute',
+        width: 60, height: 60,
+        alignItems: 'center'
     }
 })

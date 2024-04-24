@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, Image, Alert } from 'react-native';
 import { colors, parameters } from '../Global/styles';
 import { Icon, withBadge } from "react-native-elements";
 
-export default function Home_Header() {
+export default function Home_Header({navigation}) {
 
     const BadgeIcon = withBadge(0)(Icon)
 
@@ -16,7 +16,6 @@ export default function Home_Header() {
                     name="menu"
                     color={colors.cardbackgroundcolor}
                     size={32}
-                    onPress={() => { Alert.alert('Pressed') }}
                 />
             </View>
 

@@ -79,7 +79,7 @@ export default function SignIn({ navigation }) {
                     title='Sign In'
                     titleStyle={parameters.buttonTitle}
                     buttonStyle={parameters.styledButton}
-                    onPress={() => { navigation.navigate('Bottom_Tab_Navigator') }}
+                    onPress={() => { navigation.navigate('Buottom_tab_navigator') }}
                 />
             </View>
 

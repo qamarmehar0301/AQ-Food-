@@ -3,9 +3,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Icon } from 'react-native-elements';
 import Home_Screen from '../screens/Home_Screen';
 import { colors } from '../Global/styles';
-import Search_Screen from '../screens/Search_Screen';
 import My_Order from '../screens/My_Order';
 import My_Account from '../screens/My_Account';
+import Search_Result_Navigator from '../navigation/Search_navigator'
 
 const BottomTab = createBottomTabNavigator();
 
@@ -34,7 +34,7 @@ export default function Buottom_tab_navigator() {
             />
             <BottomTab.Screen
                 name="Search-Screen"
-                component={Search_Screen}
+                component={Search_Result_Navigator}
                 options={
                     {
                         tabBarLabel: 'Search ',

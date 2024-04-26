@@ -30,7 +30,7 @@ export default function Food_Card({
                         <Text style={styles.resturantsName}> {resturantsName}</Text>
                     </View>
 
-                    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+                    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' ,  marginBottom: 5 }}>
 
                         <View style={styles.distance}>
                             <Icon
@@ -49,12 +49,13 @@ export default function Food_Card({
                         </View>
                     </View>
                 </View>
+                <View style={styles.review_container}>
+                    <Text style={styles.review_text}> {averageReview} </Text>
+                    <Text style={{ color: 'white' }}> {noOfReviews} reviews </Text>
+                </View>
             </View>
 
-            <View style={styles.review_container}>
-                <Text style={styles.review_text}> {averageReview} </Text>
-                <Text style={{ color: 'white' }}> {noOfReviews} reviews </Text>
-            </View>
+
         </TouchableOpacity>
     )
 }
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
     review_container: {
         position: 'absolute',
         top: 0,
-        right: 5,
+        right: 0,
         backgroundColor: "rgba(52,52,52,0.3)",
         padding: 2,
         alignItems: 'center',

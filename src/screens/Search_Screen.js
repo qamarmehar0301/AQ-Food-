@@ -7,7 +7,7 @@ import { colors } from "../Global/styles";
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-export default function Search_Screen() {
+export default function Search_Screen({navigation}) {
     return (
         <View style={styles.container}>
             <Search_Component />
@@ -17,7 +17,7 @@ export default function Search_Screen() {
                 data={filterData}
                 keyExtractor={item => item.id}
                 renderItem={({ item }) => (
-                    <TouchableWithoutFeedback>
+                    <TouchableWithoutFeedback onPress={()=> {navigation.navigate('Search_Result', { item: item.name })}}>
                         <View style={styles.imageView}>
                             <ImageBackground
                                 style={styles.image_bg}

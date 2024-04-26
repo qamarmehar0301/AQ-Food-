@@ -17,7 +17,7 @@ export const resturantsData = [
         images: "https://i.dawn.com/primary/2019/01/5c2dd06bbbe42.jpg", coordinate: { lat: -26.2423, lng: 34.523423 },
         averageReviews: 4.5, numberofReviews: 244, disscount: 50, deliveryTime: 15, collectTime: 15, foodType: "Chiken Karahi, Beef Karahi , Kabab ",
         ProductData: [
-            { name: "Chicken Karahi ", price: 1600 , image: "https://img.freepik.com/free-photo/grilled-meat-vegetables-cast-iron-homemade-generated-by-ai_188544-20585.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1712966400&semt=ais" },
+            { name: "Chicken Karahi ", price: 1600, image: "https://img.freepik.com/free-photo/grilled-meat-vegetables-cast-iron-homemade-generated-by-ai_188544-20585.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1712966400&semt=ais" },
             { name: "Kabab ", price: 350, image: "https://www.shutterstock.com/image-photo/grilled-lula-kebab-on-skewers-260nw-1820685599.jpg" },
             { name: "BBQ ", price: 190, image: "https://t4.ftcdn.net/jpg/03/36/59/67/360_F_336596714_KYxkCzJK686f0lon80WIeHOecR3OIy5S.jpg" },
             { name: "Malai Boti ", price: 250, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvnJLLiLQ8KB_8dHNFlvwQIkJkKebcso-De-2UAk5rJg&s" },
@@ -31,7 +31,7 @@ export const resturantsData = [
         collectTime: 15, foodType: "Tawa Piece, Fried Naan, Karachi",
         ProductData: [
             { name: "Tawa Piece ", price: 750, image: "https://www.shutterstock.com/image-photo/spicy-chicken-tawa-piece-fry-600nw-1198801801.jpg" },
-            { name: "Chicken Karahi ", price: 1900 , image: "https://www.shutterstock.com/image-photo/mutton-karahi-restaurant-style-gosht-260nw-2148912765.jpg" },
+            { name: "Chicken Karahi ", price: 1900, image: "https://www.shutterstock.com/image-photo/mutton-karahi-restaurant-style-gosht-260nw-2148912765.jpg" },
             { name: "Fried Naan ", price: 50, image: "https://media.istockphoto.com/id/1150376593/photo/bread-tandoori-indian-cuisine.jpg?s=612x612&w=0&k=20&c=GGT5LN7G4zLhJTEnP_KcyvYuayi8f1nJcvQwvmj0rCM=" },
         ],
         id: 1
@@ -49,7 +49,7 @@ export const resturantsData = [
             { name: "Zinger Shawarma ", price: 420, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeu7Ge2cg3Sl78kuo-KtM_XSL0IhH-nOaN-RxSzIi0u8c60RIUxSYwOwTnkd3pzvkfRlU&usqp=CAU" },
             { name: "Andy Wala Burger ", price: 150, image: "https://d3o2ptabp7rtgq.cloudfront.net/bss/webp/media/catalog/product/cache/0382bfe7b144d6408e0d2797b01c42e4/b/u/burger_shami_2.webp" },
             { name: "Sandwich ", price: 220, image: "https://t3.ftcdn.net/jpg/01/11/28/82/360_F_111288255_yYufRCRFaLsxVIlaAQMWYMTJD1R4Dy02.jpg" },
-        ], 
+        ],
         id: 2
     },
     {
@@ -59,8 +59,8 @@ export const resturantsData = [
         collectTime: 15, foodType: "Desi and Fast Food + Deserts also",
         ProductData: [
             { name: "Biryani ", price: 250, image: "https://media-cdn.tripadvisor.com/media/photo-s/0b/0f/ca/c5/savour-foods-pulao-kabab.jpg" },
-            { name: "Mutton Karahi ", price: 4500 , image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCTSZZc2xdkNF96UyzqU0w_NNPIAzhRtmSiMPdlNuGFg&s" },
-            { name: "Ice Cream ", price: 400 , image: "https://media.gettyimages.com/id/157472912/photo/ice-cream-composition-on-a-bowl.jpg?s=612x612&w=gi&k=20&c=AniWX1OhaarUxCkgjUoKiA3bKVllK0upCylW6Z0PCMQ=" },
+            { name: "Mutton Karahi ", price: 4500, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCTSZZc2xdkNF96UyzqU0w_NNPIAzhRtmSiMPdlNuGFg&s" },
+            { name: "Ice Cream ", price: 400, image: "https://media.gettyimages.com/id/157472912/photo/ice-cream-composition-on-a-bowl.jpg?s=612x612&w=gi&k=20&c=AniWX1OhaarUxCkgjUoKiA3bKVllK0upCylW6Z0PCMQ=" },
         ],
         id: 3
     },
@@ -71,12 +71,12 @@ export const resturantsData = [
 export const Promotion_Resturant_Data = [
     {
         resturantsName: "Arif Chatkhara", farAway: "7", businessAddress: "Androon Lahore",
-        images: "https://lh5.googleusercontent.com/proxy/OqaA0apuRViIQL9-SYP73HnD4A7RZnHOHlsAWv2oPDQplNBaMusGBEwwSPpZEMo9Wls59iD7gG0ENCU4pesIuOisN9Hvx7cZuoYLQzU9pJUcDrHVoKM",
+        images: "https://www.shutterstock.com/image-photo/spicy-chicken-tawa-piece-fry-600nw-1198801801.jpg",
         coordinate: { lat: -26.2423, lng: 34.523423 }, averageReviews: 4.9, numberofReviews: 244, disscount: 50, deliveryTime: 15,
         collectTime: 15, foodType: "Tawa Piece, Fried Naan, Karachi",
         ProductData: [
-            { name: "Tawa Piece", price: 750, image: "https://www.shutterstock.com/image-photo/spicy-chicken-tawa-piece-fry-600nw-1198801801.jpg" },
-            { name: "Chicken Karahi", price: 1900 , image: "https://www.shutterstock.com/image-photo/mutton-karahi-restaurant-style-gosht-260nw-2148912765.jpg" },
+            { name: "Tawa Piece", price: 750, image: "https://lh5.googleusercontent.com/proxy/OqaA0apuRViIQL9-SYP73HnD4A7RZnHOHlsAWv2oPDQplNBaMusGBEwwSPpZEMo9Wls59iD7gG0ENCU4pesIuOisN9Hvx7cZuoYLQzU9pJUcDrHVoKM" },
+            { name: "Chicken Karahi", price: 1900, image: "https://www.shutterstock.com/image-photo/mutton-karahi-restaurant-style-gosht-260nw-2148912765.jpg" },
             { name: "Fried Naan", price: 50, image: "https://media.istockphoto.com/id/1150376593/photo/bread-tandoori-indian-cuisine.jpg?s=612x612&w=0&k=20&c=GGT5LN7G4zLhJTEnP_KcyvYuayi8f1nJcvQwvmj0rCM=" },
         ],
         id: 0
@@ -88,8 +88,8 @@ export const Promotion_Resturant_Data = [
         collectTime: 15, foodType: "Desi and Fast Food + Deserts also",
         ProductData: [
             { name: "Biryani", price: 250, image: "https://media-cdn.tripadvisor.com/media/photo-s/0b/0f/ca/c5/savour-foods-pulao-kabab.jpg" },
-            { name: "Mutton Karahi", price: 4500 , image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCTSZZc2xdkNF96UyzqU0w_NNPIAzhRtmSiMPdlNuGFg&s" },
-            { name: "Ice Cream", price: 400 , image: "https://media.gettyimages.com/id/157472912/photo/ice-cream-composition-on-a-bowl.jpg?s=612x612&w=gi&k=20&c=AniWX1OhaarUxCkgjUoKiA3bKVllK0upCylW6Z0PCMQ=" },
+            { name: "Mutton Karahi", price: 4500, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCTSZZc2xdkNF96UyzqU0w_NNPIAzhRtmSiMPdlNuGFg&s" },
+            { name: "Ice Cream", price: 400, image: "https://media.gettyimages.com/id/157472912/photo/ice-cream-composition-on-a-bowl.jpg?s=612x612&w=gi&k=20&c=AniWX1OhaarUxCkgjUoKiA3bKVllK0upCylW6Z0PCMQ=" },
         ],
         id: 1
     },
@@ -106,7 +106,7 @@ export const Promotion_Resturant_Data = [
             { name: "Zinger Shawarma", price: 420, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeu7Ge2cg3Sl78kuo-KtM_XSL0IhH-nOaN-RxSzIi0u8c60RIUxSYwOwTnkd3pzvkfRlU&usqp=CAU" },
             { name: "Andy Wala Burger", price: 150, image: "https://d3o2ptabp7rtgq.cloudfront.net/bss/webp/media/catalog/product/cache/0382bfe7b144d6408e0d2797b01c42e4/b/u/burger_shami_2.webp" },
             { name: "Sandwich", price: 220, image: "https://t3.ftcdn.net/jpg/01/11/28/82/360_F_111288255_yYufRCRFaLsxVIlaAQMWYMTJD1R4Dy02.jpg" },
-        ], 
+        ],
         id: 2
     },
     {
@@ -114,7 +114,7 @@ export const Promotion_Resturant_Data = [
         images: "https://i.dawn.com/primary/2019/01/5c2dd06bbbe42.jpg", coordinate: { lat: -26.2423, lng: 34.523423 },
         averageReviews: 4.5, numberofReviews: 244, disscount: 50, deliveryTime: 15, collectTime: 15, foodType: "Chiken Karahi, Beef Karahi , Kabab ",
         ProductData: [
-            { name: "Chicken Karahi", price: 1600 , image: "https://img.freepik.com/free-photo/grilled-meat-vegetables-cast-iron-homemade-generated-by-ai_188544-20585.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1712966400&semt=ais" },
+            { name: "Chicken Karahi", price: 1600, image: "https://img.freepik.com/free-photo/grilled-meat-vegetables-cast-iron-homemade-generated-by-ai_188544-20585.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1712966400&semt=ais" },
             { name: "Kabab", price: 350, image: "https://www.shutterstock.com/image-photo/grilled-lula-kebab-on-skewers-260nw-1820685599.jpg" },
             { name: "BBQ", price: 190, image: "https://t4.ftcdn.net/jpg/03/36/59/67/360_F_336596714_KYxkCzJK686f0lon80WIeHOecR3OIy5S.jpg" },
             { name: "Malai Boti", price: 250, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvnJLLiLQ8KB_8dHNFlvwQIkJkKebcso-De-2UAk5rJg&s" },
@@ -122,3 +122,26 @@ export const Promotion_Resturant_Data = [
         id: 3
     },
 ]
+
+
+// export const productData = [{
+//     name: "Hand cut chips", price: 29.30, image:"https://img.freepik.com/free-photo/grilled-meat-vegetables-cast-iron-homemade-generated-by-ai_188544-20585.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1712966400&semt=ais",
+//     details: "Two 100% fresh beef burger patties that are hot,deliciously", id: 0
+// },
+// {
+//     name: "Big Mac", price: 50.80, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png",
+//     details: "McFeast features two 100% fresh beef burger patties that are hot", id: 1
+// },
+// { name: "Chicken Burger", price: 70, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png", details: "", id: 2 },
+
+// {
+//     name: "Hand cut chips", price: 29.30, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png",
+//     details: "Two 100% fresh beef burger patties that are hot,deliciously", id: 3
+// },
+// {
+//     name: "Big Mac", price: 70.20, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate1.png",
+//     details: "McFeast features two 100% fresh beef burger patties that are hot", id: 4
+// },
+// { name: "Chicken Burger", price: 70, image: "https://bukasapics.s3.us-east-2.amazonaws.com/chicken.png", details: "", id: 5 },
+
+// ];

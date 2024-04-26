@@ -7,13 +7,13 @@ export default function Header({ title, navigation }) {
 
     return (
         <View style={styles.header}>
-            <TouchableOpacity onPress={()=> {
-                navigation.navigate('Welcom_screen')}}>
+            <TouchableOpacity>
                 <Icon
                     type="material-community"
                     name = 'arrow-left'
-                    size={30}
+                    size={28}
                     color={colors.cardbackgroundcolor}
+                    onPress={() => navigation.goBack()}
                 />
             </TouchableOpacity>
             <Text style={styles.header_text}>{title}</Text>
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     },
     header_text: {
         color: colors.header_text,
-        fontSize: 25,
+        fontSize: 22,
         fontWeight: "bold",
         marginLeft: '5%',
     },

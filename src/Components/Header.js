@@ -36,9 +36,4 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         marginLeft: '5%',
     },
-    image: {
-        resizeMode: 'contain',
-        height: 25,
-        width: 25,
-    }
 });

@@ -14,6 +14,7 @@ export default function Product_Card({ Prd_name, Prd_price, Prd_image }) {
                     <Image
                         style={styles.image}
                         source={{uri: Prd_image}}
+                        
                     />
                 </View>
 

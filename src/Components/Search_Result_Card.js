@@ -20,7 +20,7 @@ export default function Search_Result_Card({
 }) {
     return (
         <View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onPresResturant_Card}>
                 <View style={{ ...styles.cardView, width: screenWidth }}>
                     <Image
                         style={{ ...styles.image }}
@@ -68,6 +68,7 @@ export default function Search_Result_Card({
                             Prd_name={item.name}
                         />
                     )}
+                    
                 />
 
             </View>

@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import { Text, View, StyleSheet, Image, Alert, TouchableOpacity, ScrollView, FlatList, Pressable, Dimensions } from 'react-native';
-import { Icon } from "react-native-elements";
+import React from "react";
+import { Text, View, StyleSheet, ScrollView, FlatList, Dimensions } from 'react-native';
 import Search_Result_Card from "../Components/Search_Result_Card";
 import { resturantsData } from '../Global/Data'
 import { colors } from '../Global/styles'
@@ -11,38 +10,37 @@ const SCREEN_WIDTH = Dimensions.get('window').width
 export default function Search_Result({ navigation, route }) {
     return (
         <View style={styles.container}>
-            <Header title="Your Search" navigation={navigation}/>
-            <View>
-                <View style={{ marginVertical: '5%', marginLeft: '2.5%' }}>
+            <Header title="Your Search" navigation={navigation} />
+            <ScrollView stickyHeaderIndices={[0]}>
+
+                <View style={{ marginLeft: '2.5%', backgroundColor: 'white', paddingBottom: 15, paddingTop: 15 }}>
                     <Text style={styles.text}> {resturantsData.length} results for {route.params.item}  </Text>
                 </View>
 
-                <ScrollView>
-
-                    <FlatList
-                        style={{ marginLeft: '1.5%', marginBottom: '8%' }}
-                        // horizontal={false}
-                        showsHorizontalScrollIndicator={false}
-                        data={resturantsData}
-                        keyExtractor={(item, index) => index.toString()}
-                        renderItem={({ item }) => (
-                            <View style={{ marginBottom: 20 }}>
-                                <Search_Result_Card
-                                    screenWidth={SCREEN_WIDTH * 0.94}
-                                    images={item.images}
-                                    resturantsName={item.resturantsName}
-                                    businessAddress={item.businessAddress}
-                                    noOfReviews={item.numberofReviews}
-                                    averageReview={item.averageReviews}
-                                    farAway={item.farAway}
-                                     ProductData={item.ProductData}
-                                />
-                            </View>
-                        )}
-                    />
-                </ScrollView>
-            </View>
+                <FlatList
+                    style={{ marginHorizontal: '1.5%' }}
+                    data={resturantsData}
+                    keyExtractor={(item, index) => index.toString()}
+                    renderItem={({ item, index }) => (
+                        <View style={{ marginBottom: 5 }}>
+                            <Search_Result_Card
+                                screenWidth={SCREEN_WIDTH * 0.94}
+                                images={item.images}
+                                resturantsName={item.resturantsName}
+                                businessAddress={item.businessAddress}
+                                noOfReviews={item.numberofReviews}
+                                averageReview={item.averageReviews}
+                                farAway={item.farAway}
+                                ProductData={item.ProductData}
+                                onPresResturant_Card={() => { navigation.navigate('Rest_Profile_Screen', { id: index, resturant: item.resturantsName }) }}
+                            />
+                        </View>
+                    )}
+                />
+                
+            </ScrollView>
         </View>
+
     )
 }
 

@@ -15,7 +15,7 @@ export const resturantsData = [
     {
         resturantsName: "Nisar Charsi Tikka ", farAway: "5", businessAddress: "Model Town Lahore ",
         images: "https://i.dawn.com/primary/2019/01/5c2dd06bbbe42.jpg", coordinate: { lat: -26.2423, lng: 34.523423 },
-        averageReviews: 4.5, numberofReviews: 244, disscount: 50, deliveryTime: 15, collectTime: 15, foodType: "Chiken Karahi, Beef Karahi , Kabab ",
+        averageReviews: 4.5, numberofReviews: 676, disscount: 10, deliveryTime: 35, collectTime: 20, foodType: "Chiken Karahi, Beef Karahi , Kabab ",
         ProductData: [
             { name: "Chicken Karahi ", price: 1600, image: "https://img.freepik.com/free-photo/grilled-meat-vegetables-cast-iron-homemade-generated-by-ai_188544-20585.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1712966400&semt=ais" },
             { name: "Kabab ", price: 350, image: "https://www.shutterstock.com/image-photo/grilled-lula-kebab-on-skewers-260nw-1820685599.jpg" },
@@ -27,8 +27,8 @@ export const resturantsData = [
     {
         resturantsName: "Arif Chatkhara ", farAway: "7", businessAddress: "Androon Lahore ",
         images: "https://lh5.googleusercontent.com/proxy/OqaA0apuRViIQL9-SYP73HnD4A7RZnHOHlsAWv2oPDQplNBaMusGBEwwSPpZEMo9Wls59iD7gG0ENCU4pesIuOisN9Hvx7cZuoYLQzU9pJUcDrHVoKM",
-        coordinate: { lat: -26.2423, lng: 34.523423 }, averageReviews: 4.9, numberofReviews: 244, disscount: 50, deliveryTime: 15,
-        collectTime: 15, foodType: "Tawa Piece, Fried Naan, Karachi",
+        coordinate: { lat: -26.2423, lng: 34.523423 }, averageReviews: 4.9, numberofReviews: 747, disscount: 20, deliveryTime: 15,
+        collectTime: 5, foodType: "Tawa Piece, Fried Naan, Karahi",
         ProductData: [
             { name: "Tawa Piece ", price: 750, image: "https://www.shutterstock.com/image-photo/spicy-chicken-tawa-piece-fry-600nw-1198801801.jpg" },
             { name: "Chicken Karahi ", price: 1900, image: "https://www.shutterstock.com/image-photo/mutton-karahi-restaurant-style-gosht-260nw-2148912765.jpg" },
@@ -39,8 +39,8 @@ export const resturantsData = [
     {
         resturantsName: "Smoke & Squads ", farAway: "10", businessAddress: "Near UET Lahore ",
         images: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOMk2iJO073GVIjWpYulm2S-4UoLlmLe2RCjemaKNHGRSeFCHzs_eyOgjNSAN6Hb11SS8&usqp=CAU",
-        coordinate: { lat: -26.2423, lng: 34.523423 }, averageReviews: 4.2, numberofReviews: 244, disscount: 50, deliveryTime: 15,
-        collectTime: 15, foodType: "Zinger Burger, Andy wala Burger, Chiken Shawarma,Loaded Fries",
+        coordinate: { lat: -26.2423, lng: 34.523423 }, averageReviews: 4.2, numberofReviews: 144, disscount: 50, deliveryTime: 45,
+        collectTime: 25, foodType: "Zinger Burger, Andy wala Burger, Chiken Shawarma,Loaded Fries",
         ProductData: [
             { name: "Zinger Burger ", price: 300, image: "https://t4.ftcdn.net/jpg/05/67/61/35/360_F_567613541_rABRpKAjdD3Hyo3e3ebVEx7VHBiF5kHI.jpg" },
             { name: "Beef Burger ", price: 700, image: "https://t3.ftcdn.net/jpg/05/62/77/30/360_F_562773014_AUOqIArlxgOunTfEgK2Ncj2YfEz0qaYb.jpg" },
@@ -53,10 +53,10 @@ export const resturantsData = [
         id: 2
     },
     {
-        resturantsName: "Savour Food ", farAway: "3", businessAddress: "Lakshmi Chowk Lahore ",
+        resturantsName: "Savour Foods ", farAway: "3", businessAddress: "Lakshmi Chowk Lahore ",
         images: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHr7Ta6USraGA9cuSjebDjLq4gAX4qOpTq6aLICqJ-aaMvrVrVjrepMVe7Xn42oejSB8M&usqp=CAU",
-        coordinate: { lat: -26.2423, lng: 34.523423 }, averageReviews: 4.1, numberofReviews: 244, disscount: 50, deliveryTime: 15,
-        collectTime: 15, foodType: "Desi and Fast Food + Deserts also",
+        coordinate: { lat: -26.2423, lng: 34.523423 }, averageReviews: 4.1, numberofReviews: 544, deliveryTime: 20,
+        collectTime: 10, foodType: "Desi and Fast Food + Deserts also",
         ProductData: [
             { name: "Biryani ", price: 250, image: "https://media-cdn.tripadvisor.com/media/photo-s/0b/0f/ca/c5/savour-foods-pulao-kabab.jpg" },
             { name: "Mutton Karahi ", price: 4500, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCTSZZc2xdkNF96UyzqU0w_NNPIAzhRtmSiMPdlNuGFg&s" },
@@ -82,7 +82,7 @@ export const Promotion_Resturant_Data = [
         id: 0
     },
     {
-        resturantsName: "Savour Food", farAway: "3", businessAddress: "Lakshmi Chowk Lahore",
+        resturantsName: "Savour Foods", farAway: "3", businessAddress: "Lakshmi Chowk Lahore",
         images: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHr7Ta6USraGA9cuSjebDjLq4gAX4qOpTq6aLICqJ-aaMvrVrVjrepMVe7Xn42oejSB8M&usqp=CAU",
         coordinate: { lat: -26.2423, lng: 34.523423 }, averageReviews: 4.1, numberofReviews: 244, disscount: 50, deliveryTime: 15,
         collectTime: 15, foodType: "Desi and Fast Food + Deserts also",
@@ -123,25 +123,92 @@ export const Promotion_Resturant_Data = [
     },
 ]
 
+//Menu Data For Resturants
+export const ArifChatkhara_menu= [
 
-// export const productData = [{
-//     name: "Hand cut chips", price: 29.30, image:"https://img.freepik.com/free-photo/grilled-meat-vegetables-cast-iron-homemade-generated-by-ai_188544-20585.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1712966400&semt=ais",
-//     details: "Two 100% fresh beef burger patties that are hot,deliciously", id: 0
-// },
-// {
-//     name: "Big Mac", price: 50.80, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png",
-//     details: "McFeast features two 100% fresh beef burger patties that are hot", id: 1
-// },
-// { name: "Chicken Burger", price: 70, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png", details: "", id: 2 },
+    { title: "Tawa Piece ", special: false, key: 0, },
+    { title: "Special Tawa Biryani ", special: false, key: 1 },
+    { title: "Tawa's Special ", special: false, key: 2 },
+    { title: "Tawa's Shahi Dall ", special: false, key: 3 },
+    { title: "Chicken Karahi ", special: false, key: 4 },
+    { title: "Roogni Naan ", special: false, key: 5 },
+    { title: "Special Tawa Naan ", special: false, key: 6 },
+    { title: "Milkshakes ", special: false, key: 7 },
+    { title: "Cold Drinks ", special: false, key: 8 },
+    { title: "Desserts ", special: false, key: 9 },
+    { title: "Hot Drinks ", special: false, key: 10 },
 
-// {
-//     name: "Hand cut chips", price: 29.30, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png",
-//     details: "Two 100% fresh beef burger patties that are hot,deliciously", id: 3
-// },
-// {
-//     name: "Big Mac", price: 70.20, image: "https://bukasapics.s3.us-east-2.amazonaws.com/plate1.png",
-//     details: "McFeast features two 100% fresh beef burger patties that are hot", id: 4
-// },
-// { name: "Chicken Burger", price: 70, image: "https://bukasapics.s3.us-east-2.amazonaws.com/chicken.png", details: "", id: 5 },
+];
+export const ArifChatkhara_special = [
+    { title: "LIMITED OFFER ", key: 0 },
+    { title: "EXTRA SPICES ", key: 1 },
+    { title: "EXTRA CHILLIS ", key: 2 },
+]; 
 
-// ];
+export const NisarCharsiTikka_menu = [
+
+    { title: "Charsi Shinwari Karahi ", special: false, key: 0, },
+    { title: "Charsi Sulemanni Karahi ", special: false, key: 1 },
+    { title: "Charsi Namkeen Tikka ", special: false, key: 2 },
+    { title: "Charsi Patta Tikka ", special: false, key: 3 },
+    { title: "Charsi Gurda Kapora ", special: false, key: 4 },
+    { title: "Kaabli Pulao Mutton ", special: false, key: 5 },
+    { title: "Kaabli Pulao Beef ", special: false, key: 6 },
+    { title: "BBQ & Malai Boti ", special: false, key: 7 },
+    { title: "Fresh Salad ", special: false, key: 8 },
+    { title: "Podena Zerra Raita ", special: false, key: 9 },
+    { title: "Soft Drinks ", special: false, key: 10 },
+    { title: "Fresh Lam ", special: false, key: 11 },
+];
+export const NisarCharsiTikka_special = [
+    { title: "LIMITED OFFER ", key: 0 },
+    { title: "Grill Fish ", key: 1 },
+    { title: "Charsi gulab Jamun ", key: 2 },
+    { title: "Charsi Hlawa ", key: 3 },
+]; 
+
+export const smokeNsquada_menu = [
+
+    { title: "Zinger Burger ", special: false, key: 0, },
+    { title: "Birria Burger ", special: false, key: 1 },
+    { title: "Kimchi Burger  ", special: false, key: 2 },
+    { title: "Beef Burger ", special: false, key: 3 },
+    { title: "Mashroom Burger ", special: false, key: 4 },
+    { title: "Andy Wala Burger ", special: false, key: 5 },
+    { title: "Chicken Shawarma ", special: false, key: 6 },
+    { title: "Zinger Shawarma ", special: false, key: 7 },
+    { title: "Sandwich ", special: false, key: 8 },
+    { title: "Fries ", special: false, key: 9 },
+    { title: "Loaded Fries ", special: false, key: 10 },
+    { title: "Soft Drinks ", special: false, key: 11 },
+];
+export const smokeNsquada_special = [
+    { title: "LIMITED OFFER ", key: 0 },
+    { title: "Go Chilli ", key: 1 },
+    { title: "Go Cheese ", key: 2 },
+]; 
+
+export const SavourFoods_menu = [
+
+    { title: "Pulao Kabab ", special: false, key: 0, },
+    { title: "Pulao ", special: false, key: 1 },
+    { title: "Chciken Biryani ", special: false, key: 2 },
+    { title: "Krispo Burger ", special: false, key: 3 },
+    { title: "Chicken Burger ", special: false, key: 4 },
+    { title: "Krispo Broast ", special: false, key: 5 },
+    { title: "Zarda ", special: false, key: 6 },
+    { title: "Kheer ", special: false, key: 7 },
+    { title: "Ice Cream", special: false, key: 8 },
+    { title: "Mint Margarita ", special: false, key: 9 },
+    { title: "Soft Drinks ", special: false, key: 10 },
+    { title: "Qahwa ", special: false, key: 11 },
+];
+export const SavourFoods_special = [
+    { title: "LIMITED OFFER ", key: 0 },
+    { title: "Grill Fish ", key: 1 },
+    { title: "Hot Shot ", key: 2 },
+    { title: "Tangy Sticks ", key: 3 },
+]; 
+
+
+//Info Data for Resturant 

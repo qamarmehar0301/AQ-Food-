@@ -7,6 +7,7 @@ import SignUp from "../screens/auth_screens/signUp";
 import Buottom_tab_navigator from "./bottomTabNavigation";
 import ResturantsMap_Screen from "../screens/ResturantsMap_Screen"
 import Drawer_Navigation from "./DrawerNavigator";
+import Rest_Profile_Screen from "../screens/Rest_Profile_Screen";
 
 const Auth = createNativeStackNavigator();
 
@@ -56,6 +57,14 @@ export default function AuthStack() {
             <Auth.Screen
                 name="ResturantsMap_Screen"
                 component={ResturantsMap_Screen}
+                options={{
+                    headerShown: false,
+                    // ...TransitionPreset.RevealFromBottomAndroid
+                }}
+            />
+            <Auth.Screen
+                name="Rest_Profile_Screen"
+                component={Rest_Profile_Screen}
                 options={{
                     headerShown: false,
                     // ...TransitionPreset.RevealFromBottomAndroid

@@ -9,7 +9,7 @@ import Food_Card from "../Components/Food_card";
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 
-export default function Home_Screen({ navigation }) {
+export default function Home_Screen({ navigation, route }) {
 
     const [Delivery, setDelivery] = useState(true)
     const [checkIndex, setcheckIndex] = useState("0")
@@ -139,7 +139,7 @@ export default function Home_Screen({ navigation }) {
                             showsHorizontalScrollIndicator={false}
                             data={resturantsData}
                             keyExtractor={(item, index) => index.toString()}
-                            renderItem={({ item }) => (
+                            renderItem={({ item, index }) => (
                                 <View>
                                     <Food_Card
                                         screenWidth={SCREEN_WIDTH * 0.8}
@@ -149,6 +149,8 @@ export default function Home_Screen({ navigation }) {
                                         noOfReviews={item.numberofReviews}
                                         averageReview={item.averageReviews}
                                         farAway={item.farAway}
+                                        onPresFood_Card ={() => { navigation.navigate('Rest_Profile_Screen', { id: index, resturant: item.resturantsName }) }}
+                                      //  onPresFood_Card={() => { navigation.navigate('Rest_Profile_Screen', { id: index, resturant: item.resturantsName }) }}
                                     />
                                 </View>
                             )}

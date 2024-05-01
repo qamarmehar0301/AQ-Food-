@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet, Image, Alert, TouchableOpacity, ScrollView, FlatList, Pressable, Dimensions } from 'react-native';
+import { Text, View, StyleSheet, Image, Alert, TouchableOpacity, ScrollView, FlatList, Pressable, Dimensions, Modal } from 'react-native';
 import { Icon } from "react-native-elements";
 import Resturant_Header from "../Components/Resturant_Header";
-import { colors, fonts } from '../Global/styles';
-import { resturantsData } from "../Global/Data";
-import { TabBar, TabView } from "react-native-tab-view"
+import { colors} from '../Global/styles';
+import { resturantsData, menu } from "../Global/Data";
+import { TabBar, TabView } from "react-native-tab-view";
 import Menu_Screen from "./Rest_Profile_Tab/Menu_Screen";
 import Info_Screen from "./Rest_Profile_Tab/Info_Screen";
 import Reviews_Screen from "./Rest_Profile_Tab/Reviews_Screen";
 import Gallery_Screen from "./Rest_Profile_Tab/Gallery_Screen";
-
+import Rest_menu_Screen from "./Rest_menu_Screen";
 const SCREEN_WIDTH = Dimensions.get('window').width
 const initialLayout = SCREEN_WIDTH;
 
@@ -36,6 +36,7 @@ export default function Rest_Profile_Screen({ navigation, route }) {
         />
     )
 
+
     const UpdateRoute1 = () => {
         return (
             <View>
@@ -43,6 +44,11 @@ export default function Rest_Profile_Screen({ navigation, route }) {
             </View>
         )
     }
+
+    const menuPressed = () => {
+        navigation.navigate('Rest_menu_Screen');
+    }
+
     return (
         <View style={{ flex: 1 }}>
 
@@ -118,7 +124,7 @@ export default function Rest_Profile_Screen({ navigation, route }) {
                 {
 
                     index === 0 &&
-                    <Menu_Screen resturant={resturant} />
+                    <Menu_Screen resturant={resturant} onPress={menuPressed} />
                 }
                 {
                     index === 1 &&
@@ -145,7 +151,6 @@ export default function Rest_Profile_Screen({ navigation, route }) {
                     </View>
                 </View>
             </TouchableOpacity>
-
         </View>
     )
 }
@@ -242,14 +247,13 @@ const styles = StyleSheet.create({
     },
     cartView: {
         backgroundColor: colors.buttons,
-        height: 50,
-        alignContent: "center",
+        height: 60,
         justifyContent: "space-between",
         flexDirection: "row",
+        alignItems: 'center',
     },
 
     view12: {
-
         justifyContent: "space-between",
         alignItems: "center"
     },
@@ -278,5 +282,5 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         fontSize: 18,
         color: colors.cardbackground,
-    },
+    }
 })

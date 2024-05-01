@@ -6,7 +6,7 @@ import {
     smokeNsquada_menu, smokeNsquada_special, SavourFoods_menu, SavourFoods_special
 } from "../../Global/Data";
 
-export default function Menu_Screen({ navaigation, resturant }) {
+export default function Menu_Screen({ navaigation, resturant, onPress, title }) {
 
     const getMenuData = () => {
         switch (resturant) {
@@ -65,17 +65,13 @@ export default function Menu_Screen({ navaigation, resturant }) {
         }
     };
 
-    const handlePress = () => {
-
-    }
-
     return (
         <View style={{ flex: 1 }}>
             <View>
                 {
                     getSpecialMenuData().map((item) =>
                         <View key={item.key} style={{ paddingHorizontal: 10 }}>
-                            <TouchableOpacity onPress={handlePress}>
+                            <TouchableOpacity onPress={onPress}>
                                 <View style={styles.view2}>
                                     <Icon
                                         name="star"
@@ -94,7 +90,7 @@ export default function Menu_Screen({ navaigation, resturant }) {
                 {
                     getMenuData().map((item) =>
                         <View key={item.key} style={{ paddingHorizontal: 10 }}>
-                            <TouchableOpacity onPress={handlePress}>
+                            <TouchableOpacity onPress={onPress}>
                                 <View style={styles.view2}>
 
                                     <Text style={{color: 'black', fontSize: 17}}>{item.title}</Text>

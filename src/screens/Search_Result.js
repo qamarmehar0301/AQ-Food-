@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, StyleSheet, ScrollView, FlatList, Dimensions } from 'react-native';
+import { Text, View, StyleSheet, ScrollView, FlatList, Dimensions, Alert } from 'react-native';
 import Search_Result_Card from "../Components/Search_Result_Card";
 import { resturantsData } from '../Global/Data'
 import { colors } from '../Global/styles'

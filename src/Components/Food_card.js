@@ -15,11 +15,12 @@ export default function Food_Card({
     farAway,
     averageReview,
     screenWidth,
-    images
+    images,
+    
 }) {
     return (
-        <TouchableOpacity>
-
+        <TouchableOpacity onPress={onPresFood_Card}>
+ 
             <View style={{ ...styles.cardView, width: screenWidth }}>
                 <Image
                     style={{ ...styles.image }}

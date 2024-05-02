@@ -150,7 +150,6 @@ export default function Home_Screen({ navigation, route }) {
                                         averageReview={item.averageReviews}
                                         farAway={item.farAway}
                                         onPresFood_Card ={() => { navigation.navigate('Rest_Profile_Screen', { id: index, resturant: item.resturantsName }) }}
-                                      //  onPresFood_Card={() => { navigation.navigate('Rest_Profile_Screen', { id: index, resturant: item.resturantsName }) }}
                                     />
                                 </View>
                             )}
@@ -171,7 +170,7 @@ export default function Home_Screen({ navigation, route }) {
                             showsHorizontalScrollIndicator={false}
                             data={Promotion_Resturant_Data}
                             keyExtractor={(item, index) => index.toString()}
-                            renderItem={({ item }) => (
+                            renderItem={({ item, index }) => (
                                 <View>
                                     <Food_Card
                                         screenWidth={SCREEN_WIDTH * 0.8}
@@ -181,6 +180,7 @@ export default function Home_Screen({ navigation, route }) {
                                         noOfReviews={item.numberofReviews}
                                         averageReview={item.averageReviews}
                                         farAway={item.farAway}
+                                        onPresFood_Card ={() => { navigation.navigate('Rest_Profile_Screen', { id: index, resturant: item.resturantsName }) }}
                                     />
                                 </View>
                             )}
@@ -205,6 +205,8 @@ export default function Home_Screen({ navigation, route }) {
                                         noOfReviews={item.numberofReviews}
                                         averageReview={item.averageReviews}
                                         farAway={item.farAway}
+                                        onPresFood_Card ={() => { navigation.navigate('Rest_Profile_Screen', { id: item.id, resturant: item.resturantsName }) }}
+
                                     />
                                 </View>
                             ))

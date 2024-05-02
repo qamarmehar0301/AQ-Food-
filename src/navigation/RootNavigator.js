@@ -1,13 +1,16 @@
-import React from "react";
-import { Text, View } from "react-native-animatable";
+import React , {useContext} from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import AuthStack from "./authNavigation";
-import { color } from "react-native-elements/dist/helpers";
+import { SignInContext } from "../context/auth_Context";
+import AppStack from "./appStack";
 
 export default  function RootNavigator() {
+
+    const {signedIn} = useContext(SignInContext)
+
     return(
         <NavigationContainer>
-            <AuthStack/>
+                {signedIn.userToken === null ? <AuthStack/> : <AppStack/>} 
         </NavigationContainer>
     )
 }

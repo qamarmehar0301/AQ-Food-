@@ -1,17 +1,38 @@
-import react, { useRef, useState } from 'react'
+import react, { useRef, useState, useContext } from 'react'
 import { Text, View, StyleSheet, TextInput, Alert, TouchableOpacity } from 'react-native'
 import Header from '../../Components/Header'
 import { Button, Icon, colors, SocialIcon } from 'react-native-elements'
 import { Animated } from 'react-native'
 import { parameters } from '../../Global/styles'
-
+import { Formik } from 'formik'
+import auth from '@react-native-firebase/auth'
+import { SignInContext } from '../../context/auth_Context'
 
 export default function SignIn({ navigation }) {
 
+    const {dispatchSignIn} = useContext(SignInContext)
     const [textInputFoucs, settextInputFoucs] = useState(false)
+    const [showPassword, setShowPassword] = useState(false);
     const textInput1 = useRef(1)
     const textInput2 = useRef(2)
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
+    async function SignIn(data) {
+        try {
+            const { email, password } = data; // Destructure email and password from data object
+            const userCredential = await auth().signInWithEmailAndPassword(email, password);
+            const user = userCredential.user;
+            if (user) {
+                dispatchSignIn({type:"UPDATE_SIGN_IN",payload:{userToken:"signed-in"}})
+               // navigation.navigate('Buottom_tab_navigator')
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
         <View style={{ flex: 1 }}>
             <Header title="Sign In" navigation={navigation} />
@@ -25,63 +46,106 @@ export default function SignIn({ navigation }) {
                 <Text style={styles.text1}> registered with your account </Text>
             </View>
 
-            {/* Input Fields */}
-            <View style={{ marginTop: '7%' }}>
-                <View style={styles.textInput1}>
-                    <Animated.View>
-                        <Icon
-                            name="email"
-                            type='material'
-                            iconStyle={{ color: colors.grey3 }}
-                        />
-                    </Animated.View>
-                    <TextInput
-                        placeholder='Email'
-                        placeholderTextColor='#86939e'
-                        style={{ width: '80%' }}
-                        ref={textInput1}
-                    />
-                </View>
-                <View style={styles.textInput2}>
-                    <Animated.View>
-                        <Icon
-                            name="lock"
-                            type='material'
-                            iconStyle={{ color: colors.grey3 }}
-                        />
-                    </Animated.View>
-                    <TextInput
-                        placeholder='Password'
-                        placeholderTextColor='#86939e'
-                        style={{ width: '80%', color: 'black' }}
-                        ref={textInput2}
-                        onFocus={() => {
-                            settextInputFoucs(false)
-                        }}
-                        onBlur={() => {
-                            settextInputFoucs(true)
-                        }}
-                    />
-                    <Animated.View animation={textInputFoucs ? "" : "fadeInLeft"} duration={400} >
-                        <Icon
-                            name="visibility-off"
-                            type='material'
-                            iconStyle={{ color: colors.grey3 }}
-                            style={{ marginRight: '5%' }}
-                        />
-                    </Animated.View>
-                </View>
-            </View>
+            <Formik
+                initialValues={{ email: '', password: '' }}
+                onSubmit={(values) => { SignIn(values) }}
+                validate={(values) => {
+                    const errors = {};
+                    if (!values.email) {
+                        errors.email = 'Email is required';
+                    } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(values.email)) {
+                        errors.email = 'Enter Proper email';
+                    }
+                    if (!values.password) {
+                        errors.password = 'Password is required';
+                    } else if (values.password.length < 6) {
+                        errors.password = 'Password must be at least 6 characters';
+                    }
+                    return errors;
+                }}
+            >
+                {(props) =>
+                    <View>
+                        {/* Input Fields */}
+                        <View style={{ marginTop: '7%' }}>
+                            <View style={styles.textInput1}>
+                                <Animated.View>
+                                    <Icon
+                                        name="email"
+                                        type='material'
+                                        iconStyle={{ color: colors.grey3 }}
+                                    />
+                                </Animated.View>
+                                <TextInput
+                                    placeholder='Email'
+                                    placeholderTextColor='#86939e'
+                                    style={{ width: '80%', color: 'black' }}
+                                    ref={textInput1}
+                                    onChangeText={props.handleChange('email')}
+                                    value={props.values.email}
+                                />
+                            </View>
+                            {props.values.email.length < 1 ? null :
+                                props.errors.email &&
+                                <Text style={{ marginTop: -15, marginLeft: '6%', marginBottom: 10, color: '#D20062' }}>
+                                    {props.errors.email}
+                                </Text>
+                            }
+                            <View style={styles.textInput2}>
+                                <Animated.View>
+                                    <Icon
+                                        name="lock"
+                                        type='material'
+                                        iconStyle={{ color: colors.grey3 }}
+                                    />
+                                </Animated.View>
+                                <TextInput
+                                    placeholder='Password'
+                                    placeholderTextColor='#86939e'
+                                    style={{ width: '80%', color: 'black' }}
+                                    ref={textInput2}
+                                    type='password'
+                                    onFocus={() => {
+                                        settextInputFoucs(false)
+                                    }}
+                                    onBlur={() => {
+                                        settextInputFoucs(true)
+                                    }}
+                                    onChangeText={props.handleChange('password')}
+                                    value={props.values.password}
+                                    secureTextEntry={!showPassword}
+                                />
+                                <Animated.View animation={textInputFoucs ? "" : "fadeInLeft"} duration={400} >
 
-            {/* Buttons */}
-            <View style={{ marginHorizontal: '5%', marginVertical: 20 }}>
-                <Button
-                    title='Sign In'
-                    titleStyle={parameters.buttonTitle}
-                    buttonStyle={parameters.styledButton}
-                    onPress={() => { navigation.navigate('Buottom_tab_navigator') }}
-                />
-            </View>
+                                    <Icon
+                                        name={showPassword ? "visibility" : "visibility-off"}
+                                        type='material'
+                                        iconStyle={{ color: colors.grey3, paddingRight: 10 }}
+                                        style={{ marginRight: '5%' }}
+                                        onPress={togglePasswordVisibility}
+                                    />
+                                </Animated.View>
+                            </View>
+                            {props.values.password.length < 1 ? null :
+                                props.errors.password &&
+                                <Text style={{ marginTop: -15, marginLeft: '6%', marginBottom: 10, color: '#D20062' }}>
+                                    {props.errors.password}
+                                </Text>
+                            }
+                        </View>
+
+                        {/* Buttons */}
+                        <View style={{ marginHorizontal: '5%', marginVertical: 20 }}>
+                            <Button
+                                title='Sign In'
+                                titleStyle={parameters.buttonTitle}
+                                buttonStyle={parameters.styledButton}
+                                // onPress={() => { navigation.navigate('Buottom_tab_navigator') }}
+                                onPress={props.handleSubmit}
+                            />
+                        </View>
+                    </View>}
+            </Formik>
 
             <TouchableOpacity style={{ alignItems: 'flex-end' }} onPress={() => { Alert.alert('Forgot Passord') }} >
                 <Text style={{ ...styles.text1, textDecorationLine: "underline", marginRight: '5%' }}> Forgot Password? </Text>
@@ -101,7 +165,7 @@ export default function SignIn({ navigation }) {
                     onPress={() => { Alert.alert('Logged In with facebook') }}
                 />
             </View>
-            
+
             <View>
                 <SocialIcon
                     title='Sign In With Google'
@@ -121,7 +185,7 @@ export default function SignIn({ navigation }) {
                     title='Create an Account'
                     buttonStyle={styles.createBtn}
                     titleStyle={styles.cretaeBtnTitle}
-                    onPress={() => {navigation.navigate('SignUp')}}
+                    onPress={() => { navigation.navigate('SignUp') }}
                 />
             </View>
         </View>

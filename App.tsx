@@ -3,16 +3,19 @@ import { View } from "react-native-animatable";
 import { StyleSheet, StatusBar } from "react-native";
 import { colors, parameters } from './src/Global/styles';
 import RootNavigator from "./src/navigation/RootNavigator";
+import { SignInContextProvider } from "./src/context/auth_Context";
 
 const App = () => {
   return (
-    <View style={styles.header}>
-      <StatusBar
-        barStyle='light-content'
-        backgroundColor={colors.statu_bar}
-      />
-      <RootNavigator/>
-    </View>
+    <SignInContextProvider>
+      <View style={styles.header}>
+        <StatusBar
+          barStyle='light-content'
+          backgroundColor={colors.statu_bar}
+        />
+        <RootNavigator />
+      </View>
+    </SignInContextProvider>
   )
 }
 

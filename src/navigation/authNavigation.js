@@ -2,12 +2,9 @@ import React from "react";
 import { createNativeStackNavigator, TransitionPreset } from '@react-navigation/native-stack'
 import Welcome_Screen from "../screens/Welcome";
 import SignIn from "../screens/auth_screens/signIn";
-import Home_Screen from "../screens/Home_Screen";
 import SignUp from "../screens/auth_screens/signUp";
-import Buottom_tab_navigator from "./bottomTabNavigation";
-import ResturantsMap_Screen from "../screens/ResturantsMap_Screen"
-import Drawer_Navigation from "./DrawerNavigator";
-import Rest_Profile_Screen from "../screens/Rest_Profile_Screen";
+import Privacy_page from "../screens/auth_screens/Privacy_page";
+import Term_condition from '../screens/auth_screens/Term_condition';
 
 const Auth = createNativeStackNavigator();
 
@@ -38,38 +35,23 @@ export default function AuthStack() {
                     // ...TransitionPreset.RevealFromBottomAndroid
                 }}
             />
-             <Auth.Screen
-                name="Buottom_tab_navigator"
-                component={Buottom_tab_navigator}
+            <Auth.Screen
+                name="Privacy_page"
+                component={Privacy_page}
                 options={{
                     headerShown: false,
                     // ...TransitionPreset.RevealFromBottomAndroid
                 }}
             />
             <Auth.Screen
-                name="Drawer_Navigator"
-                component={Drawer_Navigation}
+                name="Term_condition"
+                component={Term_condition}
                 options={{
                     headerShown: false,
                     // ...TransitionPreset.RevealFromBottomAndroid
                 }}
             />
-            <Auth.Screen
-                name="ResturantsMap_Screen"
-                component={ResturantsMap_Screen}
-                options={{
-                    headerShown: false,
-                    // ...TransitionPreset.RevealFromBottomAndroid
-                }}
-            />
-            <Auth.Screen
-                name="Rest_Profile_Screen"
-                component={Rest_Profile_Screen}
-                options={{
-                    headerShown: false,
-                    // ...TransitionPreset.RevealFromBottomAndroid
-                }}
-            />
+           
         </Auth.Navigator>
     )
 }

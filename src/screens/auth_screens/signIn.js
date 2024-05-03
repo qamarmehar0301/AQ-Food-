@@ -1,23 +1,36 @@
-import react, { useRef, useState, useContext } from 'react'
-import { Text, View, StyleSheet, TextInput, Alert, TouchableOpacity } from 'react-native'
-import Header from '../../Components/Header'
-import { Button, Icon, colors, SocialIcon } from 'react-native-elements'
-import { Animated } from 'react-native'
-import { parameters } from '../../Global/styles'
-import { Formik } from 'formik'
-import auth from '@react-native-firebase/auth'
-import { SignInContext } from '../../context/auth_Context'
+import react, { useRef, useState, useContext } from 'react';
+import { Text, View, StyleSheet, TextInput, Alert, TouchableOpacity, Modal } from 'react-native';
+import Header from '../../Components/Header';
+import { Button, Icon, colors, SocialIcon } from 'react-native-elements';
+import { Animated } from 'react-native';
+import { parameters } from '../../Global/styles';
+import { Formik } from 'formik';
+import auth from '@react-native-firebase/auth';
+import { SignInContext } from '../../context/auth_Context';
+import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 
+//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
 export default function SignIn({ navigation }) {
 
-    const {dispatchSignIn} = useContext(SignInContext)
+    const { dispatchSignIn } = useContext(SignInContext)
     const [textInputFoucs, settextInputFoucs] = useState(false)
     const [showPassword, setShowPassword] = useState(false);
     const textInput1 = useRef(1)
     const textInput2 = useRef(2)
+    const [forgotPasswordModalVisible, setForgotPasswordModalVisible] = useState(false);
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
+    };
+
+    const handleForgotPassword = async (values) => {
+        try {
+            await auth().sendPasswordResetEmail(values.forgot_email);
+            Alert.alert('Password reset email sent. Check your email inbox.');
+            setForgotPasswordModalVisible(false); // Close the modal after sending the email
+        } catch (error) {
+            Alert.alert('Error sending password reset email:', error.message);
+        }
     };
 
     async function SignIn(data) {
@@ -26,13 +39,19 @@ export default function SignIn({ navigation }) {
             const userCredential = await auth().signInWithEmailAndPassword(email, password);
             const user = userCredential.user;
             if (user) {
-                dispatchSignIn({type:"UPDATE_SIGN_IN",payload:{userToken:"signed-in"}})
-               // navigation.navigate('Buottom_tab_navigator')
+                dispatchSignIn({ type: "UPDATE_SIGN_IN", payload: { userToken: "signed-in" } })
             }
         } catch (error) {
-            console.log(error)
+            if (error.code === 'auth/user-not-found') {
+                // Handle the case where the user does not exist
+                Alert.alert('User not found. Please check your email and password.');
+            } else {
+                // Handle other errors
+                Alert.alert('An error occurred. Please try again later.');
+            }
         }
     }
+
     return (
         <View style={{ flex: 1 }}>
             <Header title="Sign In" navigation={navigation} />
@@ -140,23 +159,93 @@ export default function SignIn({ navigation }) {
                                 title='Sign In'
                                 titleStyle={parameters.buttonTitle}
                                 buttonStyle={parameters.styledButton}
-                                // onPress={() => { navigation.navigate('Buottom_tab_navigator') }}
                                 onPress={props.handleSubmit}
                             />
                         </View>
                     </View>}
             </Formik>
 
-            <TouchableOpacity style={{ alignItems: 'flex-end' }} onPress={() => { Alert.alert('Forgot Passord') }} >
-                <Text style={{ ...styles.text1, textDecorationLine: "underline", marginRight: '5%' }}> Forgot Password? </Text>
-            </TouchableOpacity>
+            {/* Forgot Password */}
+            <View>
+                <TouchableOpacity style={{ alignItems: 'flex-end' }} onPress={() => { setForgotPasswordModalVisible(true) }} >
+                    <Text style={{ ...styles.text1, textDecorationLine: "underline", marginRight: '5%' }}> Forgot Password? </Text>
+                </TouchableOpacity>
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={forgotPasswordModalVisible}
+                    onRequestClose={() => setForgotPasswordModalVisible(false)}
+                >
+                    <View style={styles.modalContainer}>
+                        <View style={styles.modalContent}>
+                            <View style={styles.forgot_Text}>
+                                <Text style={styles.modalHeaderText}>Forgot Password?</Text>
+                                <Icon
+                                    name="cancel"
+                                    type='material'
+                                    iconStyle={{ color: colors.grey3 }}
+                                    onPress={() => setForgotPasswordModalVisible(false)}
+                                />
+                            </View>
+                            <View style={{ alignItems: 'center', marginTop: '3%' }}>
+                                <Text style={styles.text1}> Please Enter your registered email </Text>
+                                <Text style={styles.text1}> to get the reset link  </Text>
+                            </View>
+                            <Formik
+                                initialValues={{ forgot_email: '' }}
+                                onSubmit={(values) => { handleForgotPassword(values) }}
+                                validate={(values) => {
+                                    const errors = {}
+                                    if (!values.forgot_email) {
+                                        errors.forgot_email = 'Email is required';
+                                    } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(values.forgot_email)) {
+                                        errors.forgot_email = 'Enter Proper email';
+                                    }
+                                    return errors;
+                                }}
+                            >
+                                {(props) =>
+                                    <View>
+                                        <View style={styles.forgot_pass_cont}>
+                                            <Animated.View>
+                                                <Icon
+                                                    name="email"
+                                                    type='material'
+                                                    iconStyle={{ color: colors.grey3 }}
+                                                />
+                                            </Animated.View>
+                                            <TextInput
+                                                placeholder='Email'
+                                                placeholderTextColor='#86939e'
+                                                style={{ width: '80%', color: 'black' }}
+                                                // ref={textInput1}
+                                                onChangeText={props.handleChange('forgot_email')}
+                                                value={props.values.forgot_email}
+                                            />
+                                        </View>
+                                        {props.values.forgot_email.length < 1 ? null :
+                                            props.errors.forgot_email &&
+                                            <Text style={{ marginTop: -15, marginLeft: '6%', marginBottom: 10, color: '#D20062' }}>
+                                                {props.errors.forgot_email}
+                                            </Text>
+                                        }
+                                        <Button
+                                            title="Get the Link"
+                                            onPress={props.handleSubmit}
+                                        />
+                                    </View>}
+                            </Formik>
+                        </View>
+                    </View>
+                </Modal>
+            </View>
 
             <View style={{ alignItems: 'center', marginTop: '10%', marginBottom: '10%' }}>
                 <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black' }}> OR </Text>
             </View>
 
-            {/* Socail Buttons */}
-            <View style={{}}>
+            {/* Facebook Buttons */}
+            <View>
                 <SocialIcon
                     title='Sign In With Facebook'
                     button
@@ -166,6 +255,7 @@ export default function SignIn({ navigation }) {
                 />
             </View>
 
+            {/* Google Button */}
             <View>
                 <SocialIcon
                     title='Sign In With Google'
@@ -250,5 +340,42 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 16,
         marginTop: -3,
-    }
+    },
+    forgot_pass_cont: {
+        borderWidth: 1,
+        borderColor: '#86939e',
+        marginVertical: '5%',
+        borderRadius: 12,
+        paddingLeft: 15,
+        color: 'black',
+        flexDirection: 'row',
+        alignContent: 'center',
+        alignItems: 'center',
+    },
+    forgot_Text: {
+        marginBottom: '4%',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexDirection: 'row'
+    },
+    modalContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        height: 150
+    },
+    modalContent: {
+        backgroundColor: 'white',
+        paddingHorizontal: 20,
+        paddingVertical: 30,
+        borderRadius: 10,
+        elevation: 5,
+    },
+    modalHeaderText: {
+        color: 'black',
+        fontSize: 20,
+        fontWeight: 'bold',
+    },
+
 })

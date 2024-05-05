@@ -5,6 +5,7 @@ import Search_Result from "../screens/Search_Result";
 import Rest_Profile_Screen from "../screens/Rest_Profile_Screen";
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import Rest_menu_Screen from "../screens/Rest_menu_Screen";
+import PreferenceScreen from "../screens/PreferenceScreen";
 
 const Search_R = createNativeStackNavigator();
 
@@ -54,7 +55,7 @@ export default function Search_Result_Navigator({ navigation, route }) {
                     }
                 }
             /> */}
-            <Search_R.Screen
+            {/* <Search_R.Screen
                 name="Rest_menu_Screen"
                 component={Rest_menu_Screen}
                 options={
@@ -63,6 +64,15 @@ export default function Search_Result_Navigator({ navigation, route }) {
                     }
                 }
             />
+             <Search_R.Screen
+                name="PreferenceScreen"
+                component={PreferenceScreen}
+                options={
+                    {
+                        headerShown: false
+                    }
+                }
+            /> */}
 
         </Search_R.Navigator>
     )

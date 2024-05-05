@@ -227,7 +227,7 @@ export const menu = [
   
   export const menuDetailedData =[
     { 
-      meal:"Big Mac",
+      meal:"Beef Burger",
       price: 600 ,
       image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwPU4vlNgJby5k9PA-3TMuUEI0H700iKKAx0d80zVvPw&s",
       details:"McFeast features two 100% fresh beef burger patties that are hot",

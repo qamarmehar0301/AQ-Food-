@@ -1,11 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Text, View, StyleSheet, ScrollView, TextInput, Alert } from 'react-native';
 import { Image } from "react-native-animatable";
 import { parameters, colors } from '../Global/styles';
 import { Button, Icon } from 'react-native-elements';
 import auth from '@react-native-firebase/auth';
+import { SignInContext } from '../context/auth_Context';
 
 export default function My_Account({ navigation }) {
+
+    const { dispatchSignIn } = useContext(SignInContext)
 
     const handleLogout = () => {
         Alert.alert('Logout', 'Do you want to Logout? ', [
@@ -19,13 +22,18 @@ export default function My_Account({ navigation }) {
     };
 
     const handleLogoutPress = async () => {
-        await auth().signOut()
-            .then(() => {
-                // navigation.navigate('SignIn');
-                console.log('Logout Success')
+        try{
+            auth()
+            .signOut()
+            .then(
+                ()=>{console.log("USER SUCCESSFULLY SIGNED OUT")
+                // dispatchSignIn({ type: "UPDATE_SIGN_IN", payload: { userToken: null} })
             })
-            .catch((error) => Alert.alert("Error while logout", error));
-    };
+    
+        }catch(error){
+            Alert.alert(error.code)
+        }
+    }
 
     return (
         <ScrollView>
@@ -65,7 +73,7 @@ export default function My_Account({ navigation }) {
                         My Name
                     </Text>
                     <TextInput
-                        placeholder='My Name'
+                        placeholder='Muhammad Qamar'
                         placeholderTextColor='#86939e'
                         style={styles.input}
                         editable={false}
@@ -76,7 +84,7 @@ export default function My_Account({ navigation }) {
                         Mobile Number
                     </Text>
                     <TextInput
-                        placeholder='Mobile Number'
+                        placeholder='03425288079'
                         placeholderTextColor='#86939e'
                         style={styles.input}
                         editable={false}
@@ -87,7 +95,7 @@ export default function My_Account({ navigation }) {
                         E-mail
                     </Text>
                     <TextInput
-                        placeholder='E-mail'
+                        placeholder='qamarmehar.0301@gmail.com'
                         placeholderTextColor='#86939e'
                         style={styles.input}
                         editable={false}
@@ -98,7 +106,7 @@ export default function My_Account({ navigation }) {
                         Address
                     </Text>
                     <TextInput
-                        placeholder='Address'
+                        placeholder='UET Lahore'
                         placeholderTextColor='#86939e'
                         style={styles.input}
                         editable={false}
@@ -111,6 +119,7 @@ export default function My_Account({ navigation }) {
                         titleStyle={parameters.buttonTitle}
                         buttonStyle={parameters.styledButton}
                         onPress={handleLogout}
+                        //onPress={()=> {navigation.navigate('My_Order')}}
                     />
                 </View>
             </View>

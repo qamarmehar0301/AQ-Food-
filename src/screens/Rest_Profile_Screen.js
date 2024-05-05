@@ -9,7 +9,6 @@ import Menu_Screen from "./Rest_Profile_Tab/Menu_Screen";
 import Info_Screen from "./Rest_Profile_Tab/Info_Screen";
 import Reviews_Screen from "./Rest_Profile_Tab/Reviews_Screen";
 import Gallery_Screen from "./Rest_Profile_Tab/Gallery_Screen";
-import Rest_menu_Screen from "./Rest_menu_Screen";
 const SCREEN_WIDTH = Dimensions.get('window').width
 const initialLayout = SCREEN_WIDTH;
 

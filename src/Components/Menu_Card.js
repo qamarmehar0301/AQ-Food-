@@ -1,11 +1,12 @@
 import React from 'react';
-import { Text, View, Image, StyleSheet } from 'react-native';
+import { Text, View, Image, StyleSheet, Touchable, TouchableOpacity } from 'react-native';
 import { colors } from '../Global/styles'
 
 
 
-export default function MenuCard({ productName, price, image, productDetails }) {
+export default function MenuCard({productName, price, image, productDetails, onPressMenuCard }) {
     return (
+        <TouchableOpacity onPress={onPressMenuCard}>
         <View style={styles.view1}>
             <View style={styles.view2}>
                 <View style={styles.view3}>
@@ -20,6 +21,7 @@ export default function MenuCard({ productName, price, image, productDetails }) 
                 </View>
             </View>
         </View>
+        </TouchableOpacity>
     )
 }
 

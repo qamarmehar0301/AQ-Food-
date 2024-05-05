@@ -4,6 +4,9 @@ import Buottom_tab_navigator from "./bottomTabNavigation";
 import ResturantsMap_Screen from "../screens/ResturantsMap_Screen"
 import Drawer_Navigation from "./DrawerNavigator";
 import Rest_Profile_Screen from "../screens/Rest_Profile_Screen";
+import My_Account from "../screens/My_Account";
+import Rest_menu_Screen from "../screens/Rest_menu_Screen";
+import PreferenceScreen from "../screens/PreferenceScreen";
 
 
 const App = createNativeStackNavigator();
@@ -43,6 +46,23 @@ export default function AppStack() {
                     // ...TransitionPreset.RevealFromBottomAndroid
                 }}
             />
+            <App.Screen
+                name="Rest_menu_Screen"
+                component={Rest_menu_Screen}
+                options={{
+                    headerShown: false,
+                    // ...TransitionPreset.RevealFromBottomAndroid
+                }}
+            />
+            <App.Screen
+                name="PreferenceScreen"
+                component={PreferenceScreen}
+                options={{
+                    headerShown: false,
+                    // ...TransitionPreset.RevealFromBottomAndroid
+                }}
+            />
+
         </App.Navigator>
     )
 }

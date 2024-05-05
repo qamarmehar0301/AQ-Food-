@@ -1,4 +1,4 @@
-import react, { useRef, useState, useContext } from 'react';
+import react, { useRef, useState, useContext, useEffect } from 'react';
 import { Text, View, StyleSheet, TextInput, Alert, TouchableOpacity, Modal } from 'react-native';
 import Header from '../../Components/Header';
 import { Button, Icon, colors, SocialIcon } from 'react-native-elements';
@@ -9,7 +9,6 @@ import auth from '@react-native-firebase/auth';
 import { SignInContext } from '../../context/auth_Context';
 import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 
-//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
 export default function SignIn({ navigation }) {
 
     const { dispatchSignIn } = useContext(SignInContext)
@@ -18,6 +17,7 @@ export default function SignIn({ navigation }) {
     const textInput1 = useRef(1)
     const textInput2 = useRef(2)
     const [forgotPasswordModalVisible, setForgotPasswordModalVisible] = useState(false);
+    const [userInfo, setuserInfo] = useState(null)
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -51,6 +51,30 @@ export default function SignIn({ navigation }) {
             }
         }
     }
+
+    // useEffect(() => {
+    //     GoogleSignin.configure({
+    //         webClientId: '819224923074-b0qjgbjeu0o6fqoqidrhviv5akvil26s.apps.googleusercontent.com'
+    //     })
+    // }, [])
+
+    // const signIn = async () => {
+    //     try {
+    //         await GoogleSignin.hasPlayServices();
+    //         const userInfo = await GoogleSignin.signIn();
+    //         this.setState({ userInfo });
+    //     } catch (error) {
+    //         if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+    //             // user cancelled the login flow
+    //         } else if (error.code === statusCodes.IN_PROGRESS) {
+    //             // operation (f.e. sign in) is in progress already
+    //         } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+    //             // play services not available or outdated
+    //         } else {
+    //             // some other error happened
+    //         }
+    //     }
+    // };
 
     return (
         <View style={{ flex: 1 }}>
@@ -153,7 +177,7 @@ export default function SignIn({ navigation }) {
                             }
                         </View>
 
-                        {/* Buttons */}
+                        {/* Sign-In Buttons */}
                         <View style={{ marginHorizontal: '5%', marginVertical: 20 }}>
                             <Button
                                 title='Sign In'
